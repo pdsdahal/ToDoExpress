@@ -1,0 +1,28 @@
+{
+    "name": "todoexpress",
+    "version": "1.0.0",
+    "description": "Sample express project",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pdsdahal/ToDoExpress.git"
+    },
+    "author": "Shankar pd Dahal",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/pdsdahal/ToDoExpress/issues"
+    },
+    "homepage": "https://github.com/pdsdahal/ToDoExpress#readme",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.0",
+        "mysql": "^2.18.1",
+        "nodemon": "^2.0.20"
+    }
+}
