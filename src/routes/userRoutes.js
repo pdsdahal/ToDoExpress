@@ -88,7 +88,7 @@ userRouter.post('/forgotpassword', (req, res) => {
         } else {
             res.status(200).json({
                 statusCode: 200,
-                desc: 'Password updated successfully.'
+                desc: 'Password Updated successfully.'
             });
         }
 
@@ -117,6 +117,7 @@ userRouter.post('/signin', (req, res) => {
     res.status(200).send('SignIn');
 
 });
+
 
 
 module.exports = userRouter;
