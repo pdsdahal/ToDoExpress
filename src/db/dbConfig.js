@@ -1,15 +1,14 @@
-const mysql = require('mysql')
+const mysql = require('mysql');
+require('dotenv').config();
 
-const hostname = 'localhost';
-const dbuser = 'sqluser';
-const dbPassword = 'password';
-const databaseName = 'canteen';
+const { HOSTNAME, DBUSER, DBPASSWORD, DATABASENAME } = process.env;
+
 
 const connection = mysql.createConnection({
-    host: hostname,
-    user: dbuser,
-    password: dbPassword,
-    database: databaseName
+    host: HOSTNAME,
+    user: DBUSER,
+    password: DBPASSWORD,
+    database: DATABASENAME
 });
 
 

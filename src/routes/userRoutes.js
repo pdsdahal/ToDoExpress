@@ -1,11 +1,12 @@
 const express = require('express');
 const connection = require('../db/dbConfig');
 const bcrypt = require('bcryptjs');
+const { admin, user, vendor, admin_vendor } = require('../middleware/roles');
+
 const userRouter = express.Router();
 
 
-
-userRouter.get('/', (req, res) => {
+userRouter.get('/', admin_vendor, (req, res) => {
 
     const sql = "SELECT user_id,name,username,role_id,last_updated_dt,enrollment_dt FROM user";
     connection.query(sql, (error, results, field) => {
@@ -25,7 +26,7 @@ userRouter.get('/', (req, res) => {
 });
 
 
-userRouter.post('/register', (req, res) => {
+userRouter.post('/register', admin_vendor, (req, res) => {
 
     const { name, username, password, role_id } = req.body;
 

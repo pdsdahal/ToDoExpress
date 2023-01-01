@@ -1,8 +1,9 @@
 const express = require('express');
 const connection = require('../db/dbConfig');
 const roleRoutes = express.Router();
+const { admin, user, vendor, admin_vendor } = require('../middleware/roles');
 
-roleRoutes.get('/', (req, res) => {
+roleRoutes.get('/', admin, (req, res) => {
 
     const query = "select * from roles";
 
@@ -23,7 +24,7 @@ roleRoutes.get('/', (req, res) => {
 });
 
 
-roleRoutes.post('/create', (req, res) => {
+roleRoutes.post('/create', admin, (req, res) => {
 
     const { roleName } = req.body;
     const sql = "insert into roles(role_name) values(?)";
@@ -45,7 +46,7 @@ roleRoutes.post('/create', (req, res) => {
 });
 
 
-roleRoutes.put('/:role_id', (req, res) => {
+roleRoutes.put('/:role_id', admin, (req, res) => {
     const { role_id } = req.params;
     const { roleName } = req.body;
 
@@ -69,7 +70,7 @@ roleRoutes.put('/:role_id', (req, res) => {
 });
 
 
-roleRoutes.delete('/:role_id', (req, res) => {
+roleRoutes.delete('/:role_id', admin, (req, res) => {
     const { role_id } = req.params;
     const sql = 'delete from roles where role_id=?';
 
@@ -91,7 +92,7 @@ roleRoutes.delete('/:role_id', (req, res) => {
 });
 
 
-roleRoutes.get('/:role_id', (req, res) => {
+roleRoutes.get('/:role_id', admin, (req, res) => {
     const { role_id } = req.params;
     const sql = 'select * from roles where role_id=?';
 
